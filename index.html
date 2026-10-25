@@ -62,7 +62,7 @@ main{max-width:1400px;margin:0 auto;padding:20px}
 .tour .hole{position:fixed;border-radius:14px;box-shadow:0 0 0 9999px rgba(5,8,12,.78),0 0 0 3px var(--yellow),0 0 24px 6px rgba(255,196,0,.55);transition:all .35s ease;pointer-events:none;display:none}
 .tour.spot .hole{display:block}
 .guide{position:fixed;display:flex;align-items:flex-end;gap:10px;transition:all .35s ease;max-width:min(560px,94vw)}
-.guide img{width:120px;height:auto;flex:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6));animation:bob 2.4s ease-in-out infinite;transform-origin:bottom center}
+.guide img{width:150px;height:auto;flex:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6));animation:bob 2.4s ease-in-out infinite;transform-origin:bottom center}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-2deg)}}
 .bubble{position:relative;background:#fff;color:#111;border-radius:18px;padding:16px 18px 12px;box-shadow:0 12px 34px rgba(0,0,0,.5);min-width:240px;margin-bottom:40px}
 .bubble:before{content:"";position:absolute;left:-10px;bottom:22px;border:10px solid transparent;border-right-color:#fff;border-left:0}
@@ -78,13 +78,13 @@ main{max-width:1400px;margin:0 auto;padding:20px}
 .bubble .back{background:#eee;color:#333}
 .bubble .go{background:var(--orange);color:#111}
 .tour.intro .guide{left:50%;top:50%;transform:translate(-50%,-50%);flex-direction:column;align-items:center;text-align:center}
-.tour.intro .guide img{width:min(230px,46vw)}
+.tour.intro .guide img{width:min(300px,62vw)}
 .tour.intro .bubble{margin:0}
 .tour.intro .bubble h4{padding:0 60px}
 .tour.intro .bubble:before{left:50%;top:-10px;bottom:auto;transform:translateX(-50%);border:10px solid transparent;border-bottom-color:#fff;border-top:0}
-.replay{position:fixed;right:16px;bottom:16px;z-index:8;width:62px;height:62px;border-radius:50%;border:3px solid var(--orange);background:var(--panel) center 8%/120% auto no-repeat;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.replay{position:fixed;right:16px;bottom:16px;z-index:8;width:62px;height:62px;border-radius:50%;border:3px solid var(--orange);background:var(--panel) 50% 4%/230% auto no-repeat;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.5)}
 .replay:hover{transform:scale(1.08)}
-@media(max-width:600px){.guide img{width:80px}.bubble{min-width:0;margin-bottom:24px}.bubble p{font-size:14px}}
+@media(max-width:600px){.guide img{width:100px}.bubble{min-width:0;margin-bottom:24px}.bubble p{font-size:14px}}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
 @media(max-width:600px){.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}input{min-width:0;flex:1 1 100%}}
 </style>
