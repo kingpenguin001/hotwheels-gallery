@@ -16,6 +16,7 @@ Ruhaan, keep collecting, keep racing, and keep this hobby alive. I'll keep build
 
 ## What's in the garage
 
+- A guided intro from a 3D mini-Ruhaan who welcomes visitors and shows them how to use the filters (shown on the first visit; tap his face in the corner to replay it)
 - Every car with its photo, brand and Ruhaan's star rating (1 to 5)
 - Filters by brand (Hot Wheels, Majorette, Teamsterz, Dactoy) and by rating
 - Search, plus sorting by rating, name, brand or the order the cars joined the collection

@@ -8,4 +8,5 @@ imgs={c['code']:{'t':b64(f"img/thumb/{c['code']}.jpg",480,72),'f':b64(f"img/full
 html=open('index.html').read()
 inline='<script>window.CARS='+json.dumps(cars)+';window.IMAGES='+json.dumps(imgs)+';</script>'
 html=html.replace('<script src="cars.js"></script>',inline)
+html=html.replace('img/ruhaan.webp','data:image/webp;base64,'+base64.b64encode(open('img/ruhaan.webp','rb').read()).decode())
 open('ruhaans-car-collection.html','w').write(html)

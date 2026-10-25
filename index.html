@@ -54,6 +54,37 @@ main{max-width:1400px;margin:0 auto;padding:20px}
 .note h2{margin:0 0 10px;font-style:italic;text-transform:uppercase;color:var(--yellow)}
 .note p{margin:0 0 10px;color:#d0d7de}
 .note .sig{text-align:right;font-weight:700;color:var(--orange);margin:0}
+/* intro tour */
+.tour{position:fixed;inset:0;z-index:20;display:none}
+.tour.open{display:block}
+.tour .dim{position:absolute;inset:0;background:rgba(5,8,12,.78)}
+.tour.spot .dim{background:transparent}
+.tour .hole{position:fixed;border-radius:14px;box-shadow:0 0 0 9999px rgba(5,8,12,.78),0 0 0 3px var(--yellow),0 0 24px 6px rgba(255,196,0,.55);transition:all .35s ease;pointer-events:none;display:none}
+.tour.spot .hole{display:block}
+.guide{position:fixed;display:flex;align-items:flex-end;gap:10px;transition:all .35s ease;max-width:min(560px,94vw)}
+.guide img{width:120px;height:auto;flex:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6));animation:bob 2.4s ease-in-out infinite;transform-origin:bottom center}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-2deg)}}
+.bubble{position:relative;background:#fff;color:#111;border-radius:18px;padding:16px 18px 12px;box-shadow:0 12px 34px rgba(0,0,0,.5);min-width:240px;margin-bottom:40px}
+.bubble:before{content:"";position:absolute;left:-10px;bottom:22px;border:10px solid transparent;border-right-color:#fff;border-left:0}
+.bubble h4{margin:0 0 6px;font-size:18px;font-style:italic;text-transform:uppercase;color:var(--orange)}
+.bubble p{margin:0;font-size:15px;line-height:1.5;min-height:3em}
+.bubble .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+.dots{display:flex;gap:5px}.dots i{width:7px;height:7px;border-radius:50%;background:#ddd}.dots i.on{background:var(--orange)}
+.bubble button{border:0;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;font-size:13px}
+.bubble .skip{position:absolute;top:8px;right:10px;background:transparent;color:#888;padding:6px 8px;font-size:12px}
+.bubble .nav{display:flex;gap:6px}.bubble button{white-space:nowrap}
+.bubble h4{padding-right:70px}
+.bubble p .rest{visibility:hidden}
+.bubble .back{background:#eee;color:#333}
+.bubble .go{background:var(--orange);color:#111}
+.tour.intro .guide{left:50%;top:50%;transform:translate(-50%,-50%);flex-direction:column;align-items:center;text-align:center}
+.tour.intro .guide img{width:min(230px,46vw)}
+.tour.intro .bubble{margin:0}
+.tour.intro .bubble h4{padding:0 60px}
+.tour.intro .bubble:before{left:50%;top:-10px;bottom:auto;transform:translateX(-50%);border:10px solid transparent;border-bottom-color:#fff;border-top:0}
+.replay{position:fixed;right:16px;bottom:16px;z-index:8;width:62px;height:62px;border-radius:50%;border:3px solid var(--orange);background:var(--panel) center 8%/120% auto no-repeat;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.replay:hover{transform:scale(1.08)}
+@media(max-width:600px){.guide img{width:80px}.bubble{min-width:0;margin-bottom:24px}.bubble p{font-size:14px}}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
 @media(max-width:600px){.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}input{min-width:0;flex:1 1 100%}}
 </style>
@@ -92,6 +123,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
   <p class="sig">With love, Mandeep (Papa)</p>
 </section>
 <footer>Ruhaan's Garage &middot; built with love by Papa &middot; always under construction</footer>
+<div class="tour" id="tour">
+  <div class="dim"></div>
+  <div class="hole" id="hole"></div>
+  <div class="guide" id="guide">
+    <img id="guideImg" src="img/ruhaan.webp" alt="Ruhaan">
+    <div class="bubble">
+      <button class="skip" id="tSkip">Skip tour</button>
+      <h4 id="tTitle"></h4>
+      <p id="tText"></p>
+      <div class="bar"><div class="dots" id="tDots"></div><div class="nav"><button class="back" id="tBack">Back</button> <button class="go" id="tNext">Next</button></div></div>
+    </div>
+  </div>
+</div>
+<button class="replay" id="replay" title="Take Ruhaan's tour again" aria-label="Take the tour again"></button>
 <script src="cars.js"></script>
 <script>
 const CARS=window.CARS;
@@ -151,6 +196,51 @@ document.onkeydown=e=>{if(!lb.classList.contains("open"))return;if(e.key==="Esca
 let tx=null;lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX);
 lb.addEventListener("touchend",e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)open(cur+(d<0?1:-1));tx=null});
 render();
+// ---- Ruhaan's intro tour ----
+const AVATAR=document.getElementById("guideImg").src;
+document.getElementById("replay").style.backgroundImage=`url("${AVATAR}")`;
+const STEPS=[
+  {t:"Hi, I'm Ruhaan!",x:`Welcome to my garage! I've collected ${total} cars from ${brands.length} brands, and I rated every single one myself. Let me show you around.`},
+  {sel:"#stats",t:"My garage in numbers",x:`Here's the scoreboard: how many cars I have, my brands, and how many earned a full 5 stars from me (${fives} so far!).`},
+  {sel:"#brands",t:"Pick a brand",x:"Tap a brand to see only those cars. Hot Wheels is my biggest team! Tap \"All brands\" to see everything again."},
+  {sel:"#ratings",t:"My ratings",x:"Want only my absolute favourites? Tap ★5. Or ★4+ to see the cars I really like."},
+  {sel:"#q",t:"Looking for one car?",x:"Type a name here, like \"Supra\" or \"Mazda\", and I'll find it for you."},
+  {sel:"#sort",t:"Line them up",x:"Sort my cars by rating, by name, by brand, or in the order they joined my garage."},
+  {sel:".card",t:"Take a closer look",x:"Tap any car to see it big. Then use the arrows (or swipe on a phone) to drive through the whole collection. ×2 means I have two of them!"},
+  {t:"Ready, set, go!",x:"That's it! Now go explore my garage. If you need me again, tap my face in the bottom corner.",last:true}
+];
+const tour=document.getElementById("tour"),hole=document.getElementById("hole"),guide=document.getElementById("guide");
+let step=0,typer=null;
+function typeText(el,txt){clearInterval(typer);el.innerHTML='<span class="shown"></span><span class="rest"></span>';const a=el.firstChild,b=el.lastChild;b.textContent=txt;let i=0;typer=setInterval(()=>{i++;a.textContent=txt.slice(0,i);b.textContent=txt.slice(i);if(i>=txt.length)clearInterval(typer)},14)}
+function placeGuide(r){
+  const vw=innerWidth,vh=innerHeight,gw=Math.min(560,vw*.94);guide.style.transform="";guide.style.width=gw+"px";
+  const gh=guide.offsetHeight;let top=r.bottom+14;if(top+gh>vh-10)top=Math.max(10,r.top-gh-14);
+  let left=Math.min(Math.max(10,r.left),vw-gw-10);guide.style.left=left+"px";guide.style.top=top+"px";
+}
+function showStep(i){
+  step=i;const s=STEPS[i];
+  document.getElementById("tTitle").textContent=s.t;typeText(document.getElementById("tText"),s.x);
+  document.getElementById("tDots").innerHTML=STEPS.map((_,k)=>`<i class="${k===i?"on":""}"></i>`).join("");
+  document.getElementById("tBack").style.display=i?"":"none";
+  document.getElementById("tNext").textContent=s.last?"Let's go!":i===0?"Show me!":"Next";
+  const el=s.sel&&document.querySelector(s.sel);
+  if(!el){tour.className="tour open intro";guide.style.left=guide.style.top=guide.style.width="";return}
+  tour.className="tour open spot";
+  el.scrollIntoView({block:"center",behavior:"instant"});
+  requestAnimationFrame(()=>{const r=el.getBoundingClientRect(),p=8;
+    Object.assign(hole.style,{left:r.left-p+"px",top:r.top-p+"px",width:r.width+2*p+"px",height:r.height+2*p+"px"});
+    placeGuide({left:r.left-p,top:r.top-p,bottom:r.bottom+p});});
+}
+function startTour(){showStep(0);document.body.style.overflow="hidden"}
+function endTour(){tour.className="tour";clearInterval(typer);document.body.style.overflow="";scrollTo({top:0,behavior:"smooth"});try{localStorage.setItem("ruhaanTourSeen","1")}catch(e){}}
+document.getElementById("tNext").onclick=()=>STEPS[step].last?endTour():showStep(step+1);
+document.getElementById("tBack").onclick=()=>showStep(Math.max(0,step-1));
+document.getElementById("tSkip").onclick=endTour;
+document.getElementById("replay").onclick=startTour;
+addEventListener("resize",()=>{if(tour.classList.contains("open"))showStep(step)});
+addEventListener("keydown",e=>{if(!tour.classList.contains("open"))return;if(e.key==="Escape")endTour();if(e.key==="ArrowRight"||e.key==="Enter")document.getElementById("tNext").click();if(e.key==="ArrowLeft"&&step)showStep(step-1)});
+let seen=false;try{seen=localStorage.getItem("ruhaanTourSeen")}catch(e){}
+if(!seen&&!/[?&]notour/.test(location.search))startTour();
 </script>
 </body>
 </html>
