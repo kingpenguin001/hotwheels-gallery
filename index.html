@@ -50,6 +50,10 @@ main{max-width:1400px;margin:0 auto;padding:20px}
 .lb .x{top:18px;right:18px;font-size:26px}
 .lb .prev{left:18px;top:50%;transform:translateY(-50%)}
 .lb .next{right:18px;top:50%;transform:translateY(-50%)}
+.note{max-width:760px;margin:20px auto 0;padding:26px 28px;background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--orange);border-radius:14px;line-height:1.65}
+.note h2{margin:0 0 10px;font-style:italic;text-transform:uppercase;color:var(--yellow)}
+.note p{margin:0 0 10px;color:#d0d7de}
+.note .sig{text-align:right;font-weight:700;color:var(--orange);margin:0}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
 @media(max-width:600px){.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}input{min-width:0;flex:1 1 100%}}
 </style>
@@ -57,7 +61,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
 <body>
 <header>
   <h1>Ruhaan's Car Collection</h1>
-  <p>Die-cast garage &middot; rated by the collector</p>
+  <p>A die-cast garage, rated by its collector, Ruhaan</p>
   <div class="stats" id="stats"></div>
 </header>
 <div class="controls">
@@ -82,7 +86,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px}
   <div class="cap" id="lbcap"></div>
   <button class="next" aria-label="Next">&#8250;</button>
 </div>
-<footer>Made with love for Ruhaan's garage</footer>
+<section class="note">
+  <h2>A note from Dad</h2>
+  <p>Ruhaan, every car in this garage has a story: the day we found it, the race it won on the living-room floor, the rating you thought hard about. I'm a software engineer, so this page is my way of building something for you, the same way you're building this collection one car at a time. It will keep growing as you do. Keep collecting, keep racing, and keep this hobby alive.</p>
+  <p class="sig">With love, Mandeep (Papa)</p>
+</section>
+<footer>Ruhaan's Garage &middot; built with love by Papa &middot; always under construction</footer>
 <script src="cars.js"></script>
 <script>
 const CARS=window.CARS;
