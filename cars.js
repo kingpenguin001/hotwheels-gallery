@@ -1,0 +1,362 @@
+window.CARS=[
+ {
+  "id": 1,
+  "code": "HW001",
+  "model": "MAD MANGA",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 2,
+  "code": "HW002",
+  "model": "MERCEDES BENZ UNIMOG",
+  "brand": "HOT WHEELS",
+  "rating": 3,
+  "qty": 1
+ },
+ {
+  "id": 3,
+  "code": "HW003",
+  "model": "VOLTAGE SPIKE [EV]",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 4,
+  "code": "HW004",
+  "model": "SCREAMLINER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 5,
+  "code": "HW005",
+  "model": "DATSUN BLUEBIRD 610",
+  "brand": "HOT WHEELS",
+  "rating": 2,
+  "qty": 1
+ },
+ {
+  "id": 6,
+  "code": "HW006",
+  "model": "MAZDA RX-3",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 7,
+  "code": "MJ001",
+  "model": "CHEVROLET CAMARO",
+  "brand": "MAJORETTE",
+  "rating": 2,
+  "qty": 1
+ },
+ {
+  "id": 8,
+  "code": "HW007",
+  "model": "PASS N GO JJH30",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 9,
+  "code": "HW008",
+  "model": "CHRYSLER GROUP",
+  "brand": "HOT WHEELS",
+  "rating": 3,
+  "qty": 2
+ },
+ {
+  "id": 10,
+  "code": "TS001",
+  "model": "FLAME 23",
+  "brand": "TEAMSTERZ",
+  "rating": 3,
+  "qty": 1
+ },
+ {
+  "id": 11,
+  "code": "DC001",
+  "model": "DAC-003",
+  "brand": "DACTOY",
+  "rating": 5,
+  "qty": 2
+ },
+ {
+  "id": 12,
+  "code": "HW009",
+  "model": "PASS N GASSER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 13,
+  "code": "HW010",
+  "model": "HOT WEENOSS",
+  "brand": "HOT WHEELS",
+  "rating": 4,
+  "qty": 1
+ },
+ {
+  "id": 14,
+  "code": "HW011",
+  "model": "DC&WBEL[S24]",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 15,
+  "code": "HW012",
+  "model": "DESSERT DRIFTER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 16,
+  "code": "HW013",
+  "model": "DONUT DRIFTER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 17,
+  "code": "HW014",
+  "model": "BIRTHDAY BURNER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 2
+ },
+ {
+  "id": 18,
+  "code": "HW015",
+  "model": "SPEED DOZER",
+  "brand": "HOT WHEELS",
+  "rating": 4,
+  "qty": 1
+ },
+ {
+  "id": 19,
+  "code": "HW016",
+  "model": "MAGIC BALL 8",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 2
+ },
+ {
+  "id": 20,
+  "code": "HW017",
+  "model": "DRAGTOR",
+  "brand": "HOT WHEELS",
+  "rating": 3,
+  "qty": 1
+ },
+ {
+  "id": 21,
+  "code": "HW018",
+  "model": "SUSHI TUNER",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 22,
+  "code": "HW019",
+  "model": "SHEIBY COBRA",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 23,
+  "code": "HW020",
+  "model": "PONTIAC AZTEK CUSTOM",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 24,
+  "code": "HW021",
+  "model": "CHICANE",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 25,
+  "code": "HW022",
+  "model": "FYL09",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 26,
+  "code": "HW023",
+  "model": "RAPID PULSE",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 27,
+  "code": "HW024",
+  "model": "BOOMBOX",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 28,
+  "code": "HW025",
+  "model": "82 TOYOTA SUPRA",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 29,
+  "code": "HW026",
+  "model": "POWER PISTONS",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 30,
+  "code": "HW027",
+  "model": "1185MJ",
+  "brand": "HOT WHEELS",
+  "rating": 4,
+  "qty": 1
+ },
+ {
+  "id": 31,
+  "code": "HW028",
+  "model": "PARTY WAGON",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 32,
+  "code": "HW029",
+  "model": "1186MJ",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 33,
+  "code": "HW030",
+  "model": "TOYOTA GR SUPERA",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 34,
+  "code": "HW031",
+  "model": "SPEED BUMP",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 35,
+  "code": "MJ002",
+  "model": "MJ13S",
+  "brand": "MAJORETTE",
+  "rating": 4,
+  "qty": 1
+ },
+ {
+  "id": 36,
+  "code": "MJ003",
+  "model": "MACK GRANITE",
+  "brand": "MAJORETTE",
+  "rating": 3,
+  "qty": 1
+ },
+ {
+  "id": 37,
+  "code": "MJ004",
+  "model": "LAMBORGHINI URUS",
+  "brand": "MAJORETTE",
+  "rating": 3,
+  "qty": 1
+ },
+ {
+  "id": 38,
+  "code": "MJ005",
+  "model": "MJ163S",
+  "brand": "MAJORETTE",
+  "rating": 4,
+  "qty": 1
+ },
+ {
+  "id": 39,
+  "code": "HW032",
+  "model": "MAZDA MX-5 MIATA",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 40,
+  "code": "HW033",
+  "model": "MUTT CUTTS",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 41,
+  "code": "HW034",
+  "model": "JAGUAR F-TYEE PROJECT JECT 7",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 42,
+  "code": "MJ006",
+  "model": "CITROEN C3",
+  "brand": "MAJORETTE",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 43,
+  "code": "MJ007",
+  "model": "DICKIE",
+  "brand": "MAJORETTE",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 44,
+  "code": "HW035",
+  "model": "VAIRSTRIKE",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ },
+ {
+  "id": 45,
+  "code": "HW036",
+  "model": "GO-REALLA FAST",
+  "brand": "HOT WHEELS",
+  "rating": 5,
+  "qty": 1
+ }
+];
